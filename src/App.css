@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   text-align: center;
 }
@@ -25,4 +31,55 @@
 }
 .header_container input::placeholder {
   color: rgb(209, 209, 209);
+}
+
+/*Main*/
+.items_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #0D3E10;
+}
+.items {
+  margin-top: 40px;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.items .item_wrapper {
+  width: 200px;
+  height: 300px;
+  margin: 5px;
+  overflow: hidden;
+  position: relative;
+}
+.items .item_wrapper:hover .item_info {
+  bottom: 0%;
+}
+.items .item_wrapper img {
+  height: 100%;
+}
+.item_wrapper .item_info {
+  position: absolute;
+  background-color: rgb(107, 107, 107);
+  bottom: -50%;
+  width: 100%;
+  height: 50%;
+  z-index: 1;
+  color: white;
+  transition: all 0.3s ease-in-out;
+}
+.item_wrapper .item_info h3 {
+  width: 80%;
+  margin: 10px auto;
+  text-align: center;
+  border-bottom: 1px solid white;
+}
+.item_wrapper .item_info p {
+  text-align: center;
+  margin: 5px 0px;
+}
+.item_wrapper .item_info p span {
+  font-weight: 600;
 }
