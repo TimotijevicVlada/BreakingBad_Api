@@ -1,4 +1,3 @@
-import { getDefaultNormalizer } from "@testing-library/dom";
 import React, { useState } from "react";
 
 const Search = ({getName}) => {
