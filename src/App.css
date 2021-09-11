@@ -11,37 +11,43 @@
 /*Header*/
 .header_container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   border-bottom: 2px solid lightgray;
 }
 .header_container .logo {
   width: 200px;
 }
-.header_container input {
+
+/*Search*/
+.search_container {
   padding: 10px;
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
+}
+.search_container form .search {
+  padding: 10px;
+  font-size: 17px;
+  width: 500px;
   border: 2px solid lightgray;
-  background-color: #29773E;
 }
-.header_container input:focus {
+.search_container form .search::placeholder {
+  font-size: 17px;
+  color: lightgray;
+}
+.search_container form .search:focus {
   outline: none;
-}
-.header_container input::placeholder {
-  color: rgb(209, 209, 209);
 }
 
 /*Main*/
 .items_wrapper {
   width: 100%;
+  padding-bottom: 200px;
   display: flex;
   justify-content: center;
   background-color: #0D3E10;
 }
 .items {
   margin-top: 40px;
+ 
   width: 70%;
   display: flex;
   justify-content: center;
