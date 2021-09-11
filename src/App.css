@@ -89,3 +89,9 @@
 .item_wrapper .item_info p span {
   font-weight: 600;
 }
+
+@media screen and (max-width: 600px) {
+  .search_container form .search {
+    width: 300px;
+  }
+}
