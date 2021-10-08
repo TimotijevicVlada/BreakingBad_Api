@@ -1,10 +1,12 @@
 import React from "react";
+import ReactPaginate from "react-paginate";
 
-const Main = ({ data }) => {
+const Main = ({ displayItems, pageCount, changePage }) => {
+
   return (
     <div className="items_wrapper">
       <div className="items">
-        {data.map((item) => (
+        {displayItems.map((item) => (
           <div className="item_wrapper">
             <img className="img" src={item.img} alt={item.name} />
             <div className="item_info">
@@ -17,6 +19,17 @@ const Main = ({ data }) => {
           </div>
         ))}
       </div>
+      <ReactPaginate
+        previousLabel={"Prev"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationContainer"}
+        previousLinkClassName={"previousBtn"}
+        nextLinkClassName={"nextBtn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
     </div>
   );
 };

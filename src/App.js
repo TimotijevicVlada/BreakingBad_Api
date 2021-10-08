@@ -3,11 +3,22 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Search from './components/Search';
 import './App.css';
+import Footer from './components/Footer';
 
 function App() {
 
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
+
+   //Pagination
+   const [pageNumber, setPageNumber] = useState(0);
+   const itemsPerPage = 10;
+   const pagesVisited = pageNumber * itemsPerPage;
+   const displayItems = data.slice(pagesVisited, pagesVisited + itemsPerPage);
+   const pageCount = Math.ceil(data.length / itemsPerPage);
+   const changePage = ({ selected }) => {
+     setPageNumber(selected);
+   };
 
   useEffect(() => {
     const fetchApi = async () => {
@@ -23,8 +34,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Search getName={(name) => setName(name)}/>
-      <Main data={data}/>
+      <Search getName={(name) => setName(name)} />
+      <Main displayItems={displayItems} pageCount={pageCount} changePage={changePage}/>
+      <Footer />
     </div>
   );
 }
