@@ -1,23 +1,34 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
 
-const Main = ({ displayItems, pageCount, changePage }) => {
-
+const Main = ({ displayItems, pageCount, changePage, loading }) => {
   return (
     <div className="items_wrapper">
       <div className="items">
-        {displayItems.map((item) => (
-          <div className="item_wrapper">
-            <img className="img" src={item.img} alt={item.name} />
-            <div className="item_info">
+        {loading ? (
+          <h1 className="loading">Loading...</h1>
+        ) : (
+          displayItems.map((item) => (
+            <div className="item_wrapper">
+              <img className="img" src={item.img} alt={item.name} />
+              <div className="item_info">
                 <h3>{item.name}</h3>
-                <p><span>Actor name:</span> {item.portrayed}</p>
-                <p><span>Nick name:</span> {item.nickname}</p>
-                <p><span>Birthday:</span> {item.birthday}</p>
-                <p><span>Status:</span> {item.status}</p>
+                <p>
+                  <span>Actor name:</span> {item.portrayed}
+                </p>
+                <p>
+                  <span>Nick name:</span> {item.nickname}
+                </p>
+                <p>
+                  <span>Birthday:</span> {item.birthday}
+                </p>
+                <p>
+                  <span>Status:</span> {item.status}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
       <ReactPaginate
         previousLabel={"Prev"}

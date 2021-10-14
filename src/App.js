@@ -9,6 +9,7 @@ function App() {
 
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
+  const [loading, setLoading] = useState(true);
 
    //Pagination
    const [pageNumber, setPageNumber] = useState(0);
@@ -26,6 +27,7 @@ function App() {
         const data = await response.json();
         console.log(data)
         setData(data);
+        setLoading(false);
   }
   fetchApi();
   }, [name])
@@ -35,7 +37,7 @@ function App() {
     <div className="App">
       <Header />
       <Search getName={(name) => setName(name)} />
-      <Main displayItems={displayItems} pageCount={pageCount} changePage={changePage}/>
+      <Main displayItems={displayItems} pageCount={pageCount} changePage={changePage} loading={loading}/>
       <Footer />
     </div>
   );
